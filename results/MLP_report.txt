@@ -1,0 +1,17 @@
+Model: MLP
+Accuracy:  0.7638
+Precision: 0.8386 (macro)
+Recall:    0.5876 (macro)
+F1:        0.6116 (macro)
+
+              precision    recall  f1-score   support
+
+      Normal       0.68      0.93      0.79      9711
+         DoS       0.96      0.83      0.89      7460
+       Probe       0.69      0.72      0.70      2421
+         R2L       0.94      0.07      0.13      2885
+         U2R       0.93      0.39      0.55        67
+
+    accuracy                           0.76     22544
+   macro avg       0.84      0.59      0.61     22544
+weighted avg       0.81      0.76      0.73     22544

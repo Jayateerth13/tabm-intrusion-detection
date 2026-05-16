@@ -1,0 +1,5 @@
+Model,n_test,n_features,total_s_mean,total_s_std,ms_per_sample,samples_per_s
+MLP,22544,122,0.0308,0.0079,0.0014,732990.4
+XGBoost,22544,122,0.3932,0.0394,0.0174,57331.1
+RandomForest,22544,122,0.2113,0.0029,0.0094,106697.4
+TabM,22544,122,0.9609,0.1106,0.0426,23462.5

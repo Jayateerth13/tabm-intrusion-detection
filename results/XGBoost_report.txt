@@ -1,0 +1,17 @@
+Model: XGBoost
+Accuracy:  0.7914
+Precision: 0.8343 (macro)
+Recall:    0.5743 (macro)
+F1:        0.6070 (macro)
+
+              precision    recall  f1-score   support
+
+      Normal       0.70      0.97      0.81      9711
+         DoS       0.97      0.84      0.90      7460
+       Probe       0.82      0.72      0.77      2421
+         R2L       0.98      0.13      0.24      2885
+         U2R       0.70      0.21      0.32        67
+
+    accuracy                           0.79     22544
+   macro avg       0.83      0.57      0.61     22544
+weighted avg       0.84      0.79      0.76     22544

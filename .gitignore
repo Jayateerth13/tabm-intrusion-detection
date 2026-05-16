@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset (download separately; see README)
+data/
+
+# Local backups
+backups/
+
+reports/
+# Large trained models (regenerate via main.ipynb)
+results/*.joblib
+results/*.pt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Matplotlib cache (created when MPLCONFIGDIR is set)
+.mplconfig/

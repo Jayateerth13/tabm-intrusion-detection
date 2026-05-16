@@ -1,0 +1,17 @@
+Model: RandomForest
+Accuracy:  0.7358
+Precision: 0.7603 (macro)
+Recall:    0.4728 (macro)
+F1:        0.4759 (macro)
+
+              precision    recall  f1-score   support
+
+      Normal       0.63      0.97      0.77      9711
+         DoS       0.96      0.76      0.85      7460
+       Probe       0.84      0.59      0.70      2421
+         R2L       0.87      0.00      0.01      2885
+         U2R       0.50      0.03      0.06        67
+
+    accuracy                           0.74     22544
+   macro avg       0.76      0.47      0.48     22544
+weighted avg       0.79      0.74      0.69     22544

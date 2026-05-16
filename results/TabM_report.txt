@@ -1,0 +1,17 @@
+Model: TabM
+Accuracy:  0.7808
+Precision: 0.7295 (macro)
+Recall:    0.6209 (macro)
+F1:        0.6054 (macro)
+
+              precision    recall  f1-score   support
+
+      Normal       0.70      0.95      0.80      9711
+         DoS       0.95      0.83      0.89      7460
+       Probe       0.75      0.76      0.75      2421
+         R2L       0.94      0.12      0.21      2885
+         U2R       0.31      0.45      0.37        67
+
+    accuracy                           0.78     22544
+   macro avg       0.73      0.62      0.61     22544
+weighted avg       0.82      0.78      0.75     22544

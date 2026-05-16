@@ -13,7 +13,9 @@ tabm-intrusion-detection/
 └── requirements.txt
 ```
 
-**`data/`** — Place `KDDTrain+.txt` and `KDDTest+.txt` from [NSL-KDD](https://www.unb.ca/cic/datasets/nsl.html).
+**`data/`** — Download from [Mireu-Lab/NSL-KDD on Hugging Face](https://huggingface.co/datasets/Mireu-Lab/NSL-KDD). This folder must contain the two official split files used by `preprocess.py`:
+- `KDDTrain+.txt` — training connections (~126k rows)
+- `KDDTest+.txt` — test connections (~22k rows)
 
 **`src/`**
 - `preprocess.py` — load data, one-hot encode categoricals (122 features), `StandardScaler`
@@ -22,7 +24,6 @@ tabm-intrusion-detection/
 - `evaluate.py` — accuracy, macro P/R/F1, per-class reports
 - `visualize.py` — confusion matrices, metric bar charts, training loss
 - `benchmark_inference.py` — test-set inference timing (CPU)
-- `draw_tabm_architecture.py` — regenerate `tabm_architecture.png`
 
 **`results/`** (created by the notebook) — `summary_metrics.csv`, `*_report.txt`, `inference_timing.csv`, saved models (`.joblib` / `.pt`), and PNG figures.
 
@@ -34,7 +35,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Download the dataset into `data/` before running.
+Download the dataset from Hugging Face into `data/` before running (see above).
 
 ## Run
 

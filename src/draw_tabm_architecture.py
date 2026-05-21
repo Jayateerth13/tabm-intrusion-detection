@@ -22,6 +22,13 @@ mpl.use("Agg")  # non-interactive save (headless / CI safe)
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 
+# Text scale for publication readability (figure size in inches stays fixed).
+FONT_SCALE = 1.28
+
+
+def _fs(base: float) -> float:
+    return base * FONT_SCALE
+
 
 def _project_root() -> str:
     return os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -34,7 +41,7 @@ def _rounded_box(
     height,
     text,
     *,
-    fontsize=9,
+    fontsize=_fs(9),
     fc="#E8F1FB",
     ec="#2C5282",
     linewidth=1.4,
@@ -103,7 +110,7 @@ def _arrow(
             text,
             ha="left",
             va="center",
-            fontsize=7.5,
+            fontsize=_fs(7.5),
             color="#2D3748",
             bbox=dict(
                 boxstyle="round,pad=0.25",
@@ -146,15 +153,15 @@ def draw_tabm_architecture(
     # Diagram center: close to the left shape-key column (small horizontal gap)
     cx = 7.95
     bw, bh = 5.85, 0.72
-    bh_pre = 0.88
+    bh_pre = 0.96
     # Reduce vertical whitespace while keeping arrow labels readable.
-    v_gap = 0.42
+    v_gap = 0.40
 
     # Extra padding on the right keeps "$k$ ensemble members" inside the dashed box
     pad_x_left, pad_x_right = 0.5, 1.28
     pad_y = 0.38
-    block_h = 0.62
-    blk_gap = 0.22
+    block_h = 0.68
+    blk_gap = 0.20
     total_inner_h = n_blocks * block_h + (n_blocks - 1) * blk_gap
     group_w = bw + pad_x_left + pad_x_right
     group_h = total_inner_h + 2 * pad_y + 0.55
@@ -195,7 +202,7 @@ def draw_tabm_architecture(
         "Backbone (BatchEnsemble)",
         ha="left",
         va="top",
-        fontsize=7.8,
+        fontsize=_fs(7.8),
         color="#975A16",
         weight="bold",
     )
@@ -213,7 +220,7 @@ def draw_tabm_architecture(
             bw,
             block_h,
             f"Block {block_num}  ·  Linear {d_block}  ·  ReLU  ·  Dropout 0.1",
-            fontsize=8,
+            fontsize=_fs(8),
             fc=fc,
             ec="#4A5568",
             linewidth=1.2,
@@ -226,7 +233,7 @@ def draw_tabm_architecture(
             rf"$k={k}$" + "\nensemble members",
             ha="right",
             va="center",
-            fontsize=6.35,
+            fontsize=_fs(6.35),
             color="#718096",
             linespacing=1.05,
         )
@@ -243,7 +250,7 @@ def draw_tabm_architecture(
         bw,
         bh_pre,
         pre_txt,
-        fontsize=7.8,
+        fontsize=_fs(7.8),
         fc="#F0FFF4",
         ec="#276749",
         text_color="#22543D",
@@ -343,7 +350,7 @@ def draw_tabm_architecture(
 
     # Loss is computed on averaged logits (same tensor as used for argmax at inference).
     y_mid_avg = 0.5 * (y_mean + y_out + bh)
-    loss_w, loss_h = 3.25, 1.12
+    loss_w, loss_h = 3.35, 1.22
     # Keep the callout inside the visible x-limits (and away from tight bbox clipping).
     x_min, x_max = ax.get_xlim()
     preferred_loss_x = cx + bw / 2 + 0.32
@@ -367,7 +374,7 @@ def draw_tabm_architecture(
         "Training loss",
         ha="center",
         va="center",
-        fontsize=8.0,
+        fontsize=_fs(8.0),
         weight="bold",
         color="#9C4221",
         zorder=6,
@@ -382,7 +389,7 @@ def draw_tabm_architecture(
         ),
         ha="center",
         va="center",
-        fontsize=7.0,
+        fontsize=_fs(7.0),
         color="#744210",
         linespacing=1.12,
         zorder=6,
@@ -405,7 +412,7 @@ def draw_tabm_architecture(
 
     # Shape key sits just left of the dashed backbone (small gap)
     leg_x = 1.45
-    leg_fs = 6.85
+    leg_fs = _fs(6.85)
     y_leg_top = gy0 + group_h - 0.12
     lines = [
         r"$B$ — batch size",
@@ -425,7 +432,7 @@ def draw_tabm_architecture(
             color="#4A5568",
             va="top",
         )
-        ly -= 0.30
+        ly -= 0.32
 
     # Avoid tight_layout adding extra outer padding; we want a tight crop.
     fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
